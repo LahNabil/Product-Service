@@ -3,7 +3,6 @@ package net.lahlalia.produit.web;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import net.lahlalia.produit.dtos.ProductDto;
-import net.lahlalia.produit.entities.Produit;
 import net.lahlalia.produit.exceptions.ProductNotFoundException;
 import net.lahlalia.produit.services.ProduitService;
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin("*")
 @RequestMapping("/api/products")
 @RequiredArgsConstructor
 public class ProduitController {
@@ -43,13 +41,6 @@ public class ProduitController {
         return ResponseEntity.ok(updatedProduct);
     }
 
-
-//@PostMapping(value = "/",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-//public ResponseEntity<Produit> saveProduct(@RequestBody Produit produit){
-//    Produit savedProduct = produitService.createProduct(produit);
-//    return new ResponseEntity<>(savedProduct, HttpStatus.CREATED);
-//
-//}
 @DeleteMapping("/{id}")
 public ResponseEntity<Void> deleteProductById(@PathVariable Long id) {
     try {

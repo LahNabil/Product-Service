@@ -2,7 +2,6 @@ package net.lahlalia.produit.web;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import net.lahlalia.produit.dtos.ProductDto;
 import net.lahlalia.produit.dtos.RegimeDto;
 import net.lahlalia.produit.services.RegimeService;
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/regimes")
-@CrossOrigin("*")
 @RequiredArgsConstructor
 public class RegimeController {
 

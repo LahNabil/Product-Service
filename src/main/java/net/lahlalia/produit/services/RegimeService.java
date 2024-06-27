@@ -46,11 +46,6 @@ public class RegimeService {
         Regime savedRegime = regimeRepository.save(regime);
         return regimeMapper.toModel(savedRegime);
 
-//        return regimeMapper.toModel(
-//                regimeRepository.save(
-//                        regimeMapper.toEntity(dto)
-//                )
-//        );
 
     }
 

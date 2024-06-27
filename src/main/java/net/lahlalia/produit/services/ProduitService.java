@@ -54,15 +54,7 @@ public class ProduitService {
     public List<ProductDto> getAllProducts(){
         return produitRepository.findAll().stream().map(productMapper::toModel).toList();
     }
-//    public Produit createProduct(Produit p)throws EntityNotFoundException{
-//        Regime regime = regimeRepository.findById(p.getRegime().getIdRegime())
-//                .orElseThrow(
-//                        ()-> new EntityNotFoundException("Regime Not found"));
-//        p.setRegime(regime);
-//        return produitRepository.save(p);
-//
-//
-//    }
+
 
     public ProductDto updateProduct(Long id, ProductDto productDto) throws EntityNotFoundException{
         Produit existingProduit = produitRepository.findById(id)
@@ -108,18 +100,10 @@ public class ProduitService {
 
 
     }
-    // Regime regime = regimeRepository.findById(dto.getRegimeId()).get();
-    // Version 2 :
 
-
-    // Version 1:
-//        return productMapper.toModel(produitRepository.save(
-//                productMapper.toEntity(dto)
-//        ));
 
 
     public void deleteProductById(Long idProduct)throws ProductNotFoundException{
-//            ProductDto productDto = getProductById(id);
         Optional<Produit> produit = produitRepository.findById(idProduct);
         if(produit.isEmpty()) throw new ProductNotFoundException("product not found with specific id : " + idProduct);
         produitRepository.deleteById(idProduct);
